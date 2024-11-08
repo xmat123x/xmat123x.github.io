@@ -80,7 +80,7 @@
     <p>Here are the files available for download:</p>
     <ul>
       {% for file in site.static_files %}
-        {% if file.path contains 'downloads/' %}
+        {% if file.path contains 'pages/downloads/files/' %}
           <li><a href="{{ file.path | relative_url }}">{{ file.name }}</a></li>
         {% endif %}
       {% endfor %}
