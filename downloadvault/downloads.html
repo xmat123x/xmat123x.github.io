@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Downloadable Files</title>
+  <style>
+    /* Basic reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    /* Body styling */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9fb;
+      color: #333;
+      line-height: 1.6;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    /* Header styling */
+    header {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #333;
+    }
+
+    /* Main container */
+    main {
+      max-width: 600px;
+      width: 100%;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    /* List styling */
+    ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 0.8rem 0;
+    }
+
+    /* Link styling */
+    a {
+      text-decoration: none;
+      color: #1a73e8;
+      font-weight: bold;
+      display: block;
+      padding: 0.8rem;
+      background-color: #e3f2fd;
+      border-radius: 5px;
+      transition: background 0.3s, color 0.3s;
+    }
+
+    a:hover {
+      background-color: #1a73e8;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Downloadable Files</h1>
+  </header>
+  <main>
+    <p>Here are the files available for download:</p>
+    <ul>
+      {% for file in site.static_files %}
+        {% if file.path contains 'downloads/' %}
+          <li><a href="{{ file.path | relative_url }}">{{ file.name }}</a></li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </main>
+</body>
+</html>
